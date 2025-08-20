@@ -1,13 +1,66 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <link rel="stylesheet" href="/src/style.css" />
+    <title>Simon Says</title>
   </head>
   <body>
-    <div id="app"></div>
+    <header class="game-header">
+      <h1>
+        Game
+        <span> Simon Says </span>
+      </h1>
+    </header>
+    <main class="game-container">
+      <div class="game-info-container">
+        <div class="game-info">
+          <h2>Game Info</h2>
+          <p>Follow the sequence of colors as Simon says!</p>
+          <p>Click on the circles to play.</p>
+          <p>Try to remember the sequence and repeat it correctly</p>
+          <p>Good luck!</p>
+        </div>
+
+        <div class="game-score">
+          <table>
+            <thead>
+              <tr>
+                <th>Player</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Score</td>
+                <td id="score">0</td>
+              </tr>
+              <tr>
+                <td>Level</td>
+                <td id="level">0</td>
+              </tr>
+              <tr>
+                <td>Global</td>
+                <td id="globalScore">0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="game-board-container">
+        <div class="game-board">
+          <div id="yellow" class="game-box-color yellow" data-color="yellow"></div>
+          <div id="blue" class="game-box-color blue" data-color="blue"></div>
+          <div id="red" class="game-box-color red" data-color="red"></div>
+          <div id="green" class="game-box-color green" data-color="green"></div>
+          <button id="start-game" class="btn-start">Start game!</button>
+        </div>
+      </div>
+
+    </main>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

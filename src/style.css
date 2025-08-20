@@ -1,96 +1,181 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+* {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.game-header {
   text-align: center;
+  padding: 1rem;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
+.game-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  gap: 8px;
+  padding: 1rem;
 }
 
-.card {
-  padding: 2em;
+.game-info-container {
+  grid-row: span 2 / span 2;
+  display: flex;
+  flex-direction: column;
 }
 
-.read-the-docs {
-  color: #888;
+.game-board-container {
+  grid-row: span 2 / span 2;
+  padding: 2rem;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+/* Game Info */
+.game-info {
+    background: #40c034;
+}
+
+/*Board*/
+.game-board {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 680px;
+  width: 75%;
+  height: 100%;
+  border: 4px solid #000;
+  border-radius: 16rem;
+  overflow: hidden;
+  margin: 0 auto;
+  position: relative;
+}
+
+.game-box-color {
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  max-width: 340px;
+  width: 50%;
+  height: 25dvh;
+  min-height: 227px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.light {
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.yellow {
+    background: yellowgreen;
+}
+
+.blue {
+    background: aquamarine;
+}
+
+.green {
+    background: seagreen;
+
+}
+.red {
+    background: tomato;
+}
+
+/*Button*/
+.btn-start{
+    width: 200px;
+    height: auto;
+    background: #ecf0f1;
+    color: #2c3e50;
+    font-size: 1.5rem;
+    position: absolute;
+    top: calc(50% - 25px);
+    left: calc(50% - 100px);
+    text-align: center;
+    line-height: 2;
+    cursor: pointer;
+}
+
+.btn-start {
+	color: #000;
+	transition: all 0.10s;
+}
+
+.btn-start::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	background-color: rgba(255,255,255,0.6);
+	transition: all 0.3s;
+}
+
+.btn-start:hover::before {
+	opacity: 0 ;
+	transform: scale(0.5,0.5);
+}
+
+.btn-start::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	opacity: 0;
+	transition: all 0.3s;
+	border: 1px solid rgba(255,255,255,0.8);
+	transform: scale(1.2,1.2);
+}
+
+.btn-start:hover::after {
+	opacity: 1;
+	transform: scale(1,1);
+}
+
+.hide{
+  display: none;
+}
+
+/*Instructions*/
+
+.Int{
+    width: 500px;
+    height: 200px;
+    
+    position: absolute;
+    margin-left: 80PX;
+}
+
+.Int p {
+    width: 400px;
+    border-radius: 15PX;
+    border: solid 4px black;
+    margin-left: -20px;
+
+}
+
+/*Punctuation*/
+
+.puntuacion{
+    position: absolute;
+    margin-left: 75vw;  
+}
+
+table{
+    border: dotted 2px black;
+    border-radius: 15PX;
+    /*width: 232px;
+    height: 500px;*/ 
+    font-size: 2em;
+    /*font-weight: bold;*/
+    text-align: center;
+}
+
+td{
+    border: solid 2px black;
+    padding: 15px;
 }
